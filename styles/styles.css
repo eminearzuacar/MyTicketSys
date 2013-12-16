@@ -1,0 +1,261 @@
+/***************************************************Reset Css*********************************************************/
+html, body{height:100%;}
+body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, br, hr, form, input, a, table, tr ,td{margin:0px; padding:0px;}
+.arzu{margin:0px; padding:0px; width:0px; height:0px; font-size:0px; line-height:0px; clear:both;}
+a, input{outline:none;}
+body{font-size:100.01%;}
+/***************************************************Reset Css*********************************************************/
+
+body {
+    background-color: #FCFFF5;
+    font-family: Arial;
+}
+
+.butonAlani {
+    width: 300px;
+    margin: 100px auto 0 auto;
+}
+
+.yeniSoru {
+    background: #CDDAD3;
+    background: -moz-linear-gradient(top, #CDDAD3 0%, #6f9180 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, #CDDAD3), color-stop(100%, #6f9180));
+    background: -webkit-linear-gradient(top, #CDDAD3 0%, #6f9180 100%);
+    background: -o-linear-gradient(top, #CDDAD3 0%, #6f9180 100%);
+    background: -ms-linear-gradient(top, #CDDAD3 0%, #6f9180 100%);
+    background: linear-gradient(to bottom, #CDDAD3 0%, #6f9180 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#CDDAD3', endColorstr='#6f9180', GradientType=0 );
+    padding: 20px 50px 20px 50px;
+    text-align: center;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 1px solid #D7E1DC;
+    color: #212E26;
+    font-size: 14px;
+    font-weight: bold;
+    width: 150px;
+    display: block;
+}
+
+.yeniSoru:hover {
+    background: #6f9180;
+    background: -moz-linear-gradient(top, #6f9180 0%, #CDDAD3 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, #6f9180), color-stop(100%, #CDDAD3));
+    background: -webkit-linear-gradient(top, #6f9180 0%, #CDDAD3 100%);
+    background: -o-linear-gradient(top, #6f9180 0%, #CDDAD3 100%);
+    background: -ms-linear-gradient(top, #6f9180 0%, #CDDAD3 100%);
+    background: linear-gradient(to bottom, #6f9180 0%, #CDDAD3 100%);
+}
+
+.eskiSorular {
+    background: #88AEBF;
+    background: -moz-linear-gradient(top, #88AEBF 0%, #426777 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, #88AEBF), color-stop(100%, #426777));
+    background: -webkit-linear-gradient(top, #88AEBF 0%, #426777 100%);
+    background: -o-linear-gradient(top, #88AEBF 0%, #426777 100%);
+    background: -ms-linear-gradient(top, #88AEBF 0%, #426777 100%);
+    background: linear-gradient(to bottom, #88AEBF 0%, #426777 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#88AEBF', endColorstr='#426777', GradientType=0 );
+    padding: 20px 50px 20px 50px;
+    text-align: center;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 1px solid #A2BECA;
+    color: #233841;
+    font-size: 14px;
+    font-weight: bold;
+    width: 150px;
+    display: block;
+    margin: 20px 0 0 0;
+}
+
+.eskiSorular:hover {
+    background: #6f9180;
+    background: -moz-linear-gradient(top, #426777 0%, #88AEBF 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, #426777), color-stop(100%, #88AEBF));
+    background: -webkit-linear-gradient(top, #426777 0%, #88AEBF 100%);
+    background: -o-linear-gradient(top, #426777 0%, #88AEBF 100%);
+    background: -ms-linear-gradient(top, #426777 0%, #88AEBF 100%);
+    background: linear-gradient(to bottom, #426777 0%, #88AEBF 100%);
+}
+
+.yeniSoruAlani {
+    background-color: #CDDCE2;
+    width: 300px;
+    height: 420px;
+    margin: 100px auto 0 auto;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 1px solid #7AA3B1;
+    padding: 25px;
+    font-weight: bold;
+    font-size: 18px
+}
+
+.yeniSoruBaslikAlani {
+    color: #283F44;
+    text-align: center;
+    padding: 0 0 15px 0;
+}
+
+.yeniSoruFormu input {
+    display: block;
+}
+
+.formInput {
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 1px solid #7AA3B1;
+    width: 275px;
+    font-size: 14px;
+    padding: 10px 10px 10px 15px;
+    margin: 15px 0 0 0;
+}
+
+.formInput::-webkit-input-placeholder { 
+    color: #283F44; 
+}
+
+.formInput::-moz-placeholder { 
+    color:#283F44; 
+}
+
+.formSelect {
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 1px solid #7AA3B1;
+    width: 301px;
+    font-size: 14px;
+    padding: 10px;
+    margin: 10px 0 0 0;
+    outline: none;
+    color:#283F44; 
+}
+
+.formFile {
+    background: #ffffff;
+    padding: 8px 50px 8px 50px;
+    text-align: center;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 1px solid #7AA3B1;
+    color: #DDE6E8;
+    font-size: 14px;
+    font-weight: bold;
+    width: 200px;
+    display: block;
+    margin: 15px auto 0 auto;
+    position: relative;
+}
+
+.formFile input {
+    display: block !important;
+    opacity: 0 !important;
+}
+
+.yeniSoruEkle {
+    color: #283F44;
+    position: absolute;
+    top: 11px;
+    left: 98px;
+}
+
+.formSubmit {
+    background: #A8C4CC;
+    background: -moz-linear-gradient(top, #CCDDE1 0%, #283F44 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, #CCDDE1), color-stop(100%, #283F44));
+    background: -webkit-linear-gradient(top, #CCDDE1 0%, #283F44 100%);
+    background: -o-linear-gradient(top, #CCDDE1 0%, #283F44 100%);
+    background: -ms-linear-gradient(top, #CCDDE1 0%, #283F44 100%);
+    background: linear-gradient(to bottom, #CCDDE1 0%, #283F44 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#CCDDE1', endColorstr='#283F44', GradientType=0 );
+    padding: 12px 50px 12px 50px;
+    text-align: center;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 1px solid #A2BECA;
+    color: #DDE6E8;
+    font-size: 14px;
+    font-weight: bold;
+    width: 200px;
+    display: block;
+    margin: 15px auto 0 auto;
+}
+
+.formSubmit:hover {
+    background: #6f9180;
+    background: -moz-linear-gradient(top, #283F44 0%, #CCDDE1 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, #283F44), color-stop(100%, #CCDDE1));
+    background: -webkit-linear-gradient(top, #283F44 0%, #CCDDE1 100%);
+    background: -o-linear-gradient(top, #283F44 0%, #CCDDE1 100%);
+    background: -ms-linear-gradient(top, #283F44 0%, #CCDDE1 100%);
+    background: linear-gradient(to bottom, #283F44 0%, #CCDDE1 100%);
+}
+
+.yoneticiGirisiAlani {
+    background-color: #CDDCE2;
+    width: 300px;
+    height: 190px;
+    margin: 100px auto 0 auto;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 1px solid #7AA3B1;
+    padding: 25px;
+    font-weight: bold;
+    font-size: 18px
+}
+
+.yoneticiAlani {
+    width: 780px;
+    margin: 100px auto 0 auto;
+}
+
+.yoneticiMenuAlani {
+    width: 180px;
+    float: left;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    background-color: #CDDCE2;
+    padding: 20px 20px 20px 35px;
+}
+
+.yoneticiMenuAlani ul li {
+    list-style: none;
+}
+
+.yoneticiMenuAlani a {
+    display: block;
+    text-decoration: none;
+    color: #283F44;
+    font-size: 15px;
+    line-height: 28px;
+}
+
+.yoneticiIcerikAlani {
+    width: 515px;
+    float: right;
+    height: 500px;
+    background-color: #CDDCE2;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+}
+
+.yoneticiIcerikAlani table {
+    margin: 20px 0 0 20px;
+    color: #283F44;
+    font-size: 15px;
+}
+
+.yoneticiIcerikAlani table tr td {
+    padding: 10px;
+}
