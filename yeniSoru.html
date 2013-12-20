@@ -8,8 +8,8 @@
 <body>
    <div class="yeniSoruAlani"> 
        <div class="yeniSoruBaslikAlani">Bize Ulaşın</div>
-        <form action="" method="POST" name="yeniSoruFormu" class="yeniSoruFormu" enctype="multipart/form-data">
-            <select name="" class="formSelect">
+        <form action="formKayit.php" name="yeniSoruFormu" class="yeniSoruFormu" method="POST" enctype="multipart/form-data"">
+            <select name="yeniSoruKategori" class="formSelect">
                 <option value="1">Bilgi</option>
                 <option value="2">Randevu</option>
                 <option value="3">Şikayet</option>
@@ -19,7 +19,7 @@
             <input type="text" name="yeniSoruEmail" class="formInput" placeholder="Email"/> 
             <input type="text" name="yeniSoruSoru" class="formInput" placeholder="Soru"/>
             <div class="formFile">
-                <input type="file" name=""/>
+                <input type="file" name="dosya1"/>
                 <div class="yeniSoruEkle">Dosya Seçiniz</div>
             </div>
             <input type="submit" class="formSubmit"/>
