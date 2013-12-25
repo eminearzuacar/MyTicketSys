@@ -16,6 +16,10 @@ body {
     margin: 100px auto 0 auto;
 }
 
+.butonAlani a {
+    text-decoration: none;
+}
+
 .yeniSoru {
     background: #CDDAD3;
     background: -moz-linear-gradient(top, #CDDAD3 0%, #6f9180 100%);
@@ -149,6 +153,7 @@ body {
     font-size: 14px;
     font-weight: bold;
     width: 200px;
+    height: 20px;
     display: block;
     margin: 15px auto 0 auto;
     position: relative;
@@ -157,6 +162,11 @@ body {
 .formFile input {
     display: block !important;
     opacity: 0 !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 36px;
 }
 
 .yeniSoruEkle {
@@ -258,4 +268,31 @@ body {
 
 .yoneticiIcerikAlani table tr td {
     padding: 10px;
+}
+
+.tumSorularDiv {
+    background-color: #CDDCE2;
+    width: 1000px;
+    height: 420px;
+    margin: 100px auto 0 auto;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 1px solid #7AA3B1;
+    padding: 25px;
+}
+
+.tumSorularDiv table {
+    border-top: 0;
+    border-bottom: 1px solid #7AA3B1;
+    border-left: 0;
+    border-right: 1px solid #7AA3B1;
+}
+
+.tumSorularDiv td {
+    padding: 20px;
+    font-family: Arial;
+    font-size: 14px;
+    border-top: 1px solid #7AA3B1;
+    border-left: 1px solid #7AA3B1;
 }
