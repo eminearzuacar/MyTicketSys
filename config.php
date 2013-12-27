@@ -13,7 +13,4 @@ $DB->query('SET character_set_connection = utf8;');
 
 $DB->show_errors();
 
-$sorular_data_sorgusu = "SELECT * FROM soru_data";
-$sorular_data = $DB->get_results( $sorular_data_sorgusu );
-
 ?>

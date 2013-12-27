@@ -34,7 +34,7 @@
 foreach($tumSorular as $soru) {
         echo '<tr>';
         echo '<td>' . $soru->baslik . '</td>';
-        echo '<td>' . $soru->soru . '</td>';
+        echo '<td><a href="soru.php?soruID='.$soru->soru_id.'">' . $soru->soru . '</a></td>';
         echo '<td>' . $soru->ad_soyad . '</td>';
         echo '<td>' . $soru->email . '</td>';
         echo '<td>' . $soru->dosya . '</td>';
