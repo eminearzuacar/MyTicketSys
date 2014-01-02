@@ -1,6 +1,6 @@
 <?php
 
-$sorular_data_sorgusu = "SELECT * FROM sorular INNER JOIN soru_data ON (sorular.soru_id = soru_data.soru_id)";
+$sorular_data_sorgusu = "SELECT * FROM sorular LEFT JOIN soru_data ON (sorular.soru_id = soru_data.soru_id) LEFT JOIN kategori ON (kategori.kategori_id = soru_data.kategori_id)";
 $sorular_data = $DB->get_results( $sorular_data_sorgusu );
 
 // Tüm soruların dataları burda çekiliyor ve tablo oluşuyor.
@@ -30,7 +30,7 @@ if(count( $sorular_data ) == 0 ){
                 $soru_dosya = $soru_data->dosya .
               '</td>
                <td>' .
-                $soru_data->kategori_id .
+                $soru_data->kategori .
               '</td>
                <td>' .
                 $soru_data->ip .

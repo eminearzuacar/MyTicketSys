@@ -1,3 +1,9 @@
+<?php
+     include_once "config.php";
+     
+      $kategoriler_sorgusu = "SELECT * FROM kategori";
+      $kategoriler = $DB->get_results( $kategoriler_sorgusu );
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,9 +16,11 @@
        <div class="yeniSoruBaslikAlani">Bize Ulaşın</div>
         <form action="formKayit.php" name="yeniSoruFormu" class="yeniSoruFormu" method="POST" enctype="multipart/form-data"">
             <select name="yeniSoruKategori" class="formSelect">
-                <option value="1">Bilgi</option>
-                <option value="2">Randevu</option>
-                <option value="3">Şikayet</option>
+                <?php
+                    foreach ($kategoriler as $kategori) {
+                        echo '<option value="'.$kategori->kategori_id.'">'.$kategori->kategori.'</option>';
+                    }
+                ?>
             </select>
             <input type="text" name="yeniSoruBaslik" class="formInput" placeholder="Başlık"/>
             <input type="text" name="yeniSoruAdSoyad" class="formInput" placeholder="Adınız Soyadınız"/>

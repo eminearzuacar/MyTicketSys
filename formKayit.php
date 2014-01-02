@@ -67,12 +67,13 @@
         }
     } else {
         //sorular tablosuna kayıt yapıp yeni kaydın id'sini alıyoruz
-        $yeniSoruSql = "INSERT INTO sorular (soru) VALUES ('$soru')";
+        $yeniSoruSql = "INSERT INTO sorular (soru, cevap, ana_soru_id, soru_tarihi) VALUES ('$soru', 0, 0, '$tarih')";
         $DB->query($yeniSoruSql);
-        $soru_id=$DB->insert_id;
-
-        //soru_data tablosuna kayıt yapıyoruz. ve az önce oluşturduğumu soru_id'sini de bu tabloya kayıt ediyoruz.
-        $yeniSoruSql2 = "INSERT INTO soru_data (baslik, ad_soyad, email, soru_id, dosya, kategori_id, ip, tarih, yayinda) VALUES ('$baslik', '$ad_soyad', '$email', $soru_id, '$dosya1', 1, '$ip', '$tarih', 1)";
+        
+        echo $DB->insert_id;
+        
+        $yeniSoruSql2 = "INSERT INTO soru_data (baslik, ad_soyad, email, soru_id, dosya, kategori_id, ip, tarih, yayinda) VALUES ('$baslik', '$ad_soyad', '$email', $DB->insert_id, '$dosya1', 1, '$ip', '$tarih', 1)";
+        echo $yeniSoruSql2;
         $DB->query($yeniSoruSql2);
         echo $DB->last_error;
     }    

@@ -1,6 +1,12 @@
 <?php
     include_once "config.php";
-    include_once "islemler.php";
+    
+    if(isset($_GET['ekle'])) {
+        $kategori = $_POST['kategori'];
+        $yeniKategoriSql = "INSERT INTO kategori (kategori) VALUES ('$kategori')";
+        $DB->query($yeniKategoriSql);
+    }
+        
 ?>
 <!DOCTYPE html>
 <html>
@@ -31,7 +37,10 @@
             </ul>
         </div>
         <div class="yoneticiIcerikAlani">
-            <?php echo $sorular_data_sonuc; ?>
+            <form action="?ekle=ekle" method="POST">
+                Yeni kategori <input type="text" name="kategori"/>
+                <input type="submit" />
+            </form>
         </div>
     </div>
 </body>

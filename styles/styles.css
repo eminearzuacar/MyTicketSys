@@ -253,11 +253,12 @@ body {
 .yoneticiIcerikAlani {
     width: 750px;
     float: right;
-    height: 500px;
+    height: auto;;
     background-color: #CDDCE2;
     border-radius: 10px 10px 10px 10px;
     -moz-border-radius: 10px 10px 10px 10px;
     -webkit-border-radius: 10px 10px 10px 10px;
+    padding: 0 0 25px 0;
 }
 
 .yoneticiIcerikAlani table {
@@ -295,4 +296,20 @@ body {
     font-size: 14px;
     border-top: 1px solid #7AA3B1;
     border-left: 1px solid #7AA3B1;
+}
+
+.sorularAlani {
+    padding: 25px;
+}
+
+.soruCevap {
+    width: 700px;
+    height: 250px;
+}
+
+.soruCevapTextarea {
+    width: 700px;
+    height: 150px;
+    resize: none;
+    margin: 25px 0 0 0;
 }
