@@ -3,6 +3,8 @@
     include_once "config.php";
     include_once "functions.php";
     
+    session_start();
+    
     //formdan gelen veriler
     $kullanici_adi = saveConent($_POST['yoneticiGirisiAd']);
     $sifre = sha1($_POST['yoneticiGirisidSifre']);
@@ -23,6 +25,7 @@
    //girisin yapılıp yapışmadığını kontrol ediyor. 
    foreach($yoneticiler as $yonetici) {
         if($yonetici->kullanici_adi == $kullanici_adi && $yonetici->sifre == $sifre) {
+            $_SESSION['yonetici'] = 1;
             header('Location: yonetimPaneli.php');
             exit;
         } else {

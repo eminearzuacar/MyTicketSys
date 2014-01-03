@@ -8,8 +8,11 @@
    
     if(is_integer((int)$soru)) {
         //soru_data tablosuna kayıt yapıyoruz. ve az önce oluşturduğumu soru_id'sini de bu tabloya kayıt ediyoruz.
-        $sorularSql = "SELECT * FROM sorular LEFT JOIN soru_data ON (sorular.soru_id = soru_data.soru_id) WHERE sorular.soru_id=$soru or sorular.ana_soru_id=$soru ORDER BY soru_tarihi DESC";
+        $sorularSql = "SELECT * FROM sorular LEFT JOIN soru_data ON (sorular.soru_id = soru_data.soru_id) WHERE sorular.soru_id=$soru or sorular.ana_soru_id=$soru ORDER BY soru_tarihi ASC";
         $sorularDetay = $DB->get_results( $sorularSql );
+        
+        $cevapSql = "SELECT * FROM sorular WHERE sorular.soru_id=$soru";
+        $cevap = $DB->get_row($cevapSql);
 ?>
 
 <html>
@@ -33,10 +36,7 @@
                     <a href="yanitlananSorular.php" class="">Yanıtlanan Sorular</a>
                 </li>
                 <li>
-                    <a href="" class="">Yeni Kategori Ekle</a>
-                </li>
-                <li>
-                    <a href="" class="">Yeni Yönetici Ekle</a>
+                    <a href="kategoriEkle.php" class="">Yeni Kategori Ekle</a>
                 </li>
             </ul>
         </div>
@@ -44,7 +44,10 @@
             <div class="sorularAlani">
 <?php        
         foreach($sorularDetay as $soruDetay) {
-            echo $soruDetay->soru . '<br />';
+            echo '-&nbsp;&nbsp;&nbsp;'. $soruDetay->soru . '<br /><br />';
+        }
+        if($cevap->cevap == 0) {
+            echo 'Bu soru henüz cevaplanmamış.';
         }
 ?>  
                 <form action="cevap.php?soru=<?php echo $soru; ?>" name="soruCevap" class="soruCevap" method="POST">

@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 3.2.0.1
+-- version 4.0.9
 -- http://www.phpmyadmin.net
 --
--- Anamakine: localhost
--- Üretim Zamanı: 20 Aralık 2013 saat 15:47:52
--- Sunucu sürümü: 5.1.37
--- PHP Sürümü: 5.3.0
+-- Anamakine: 127.0.0.1
+-- Üretim Zamanı: 03 Oca 2014, 15:46:19
+-- Sunucu sürümü: 5.6.14
+-- PHP Sürümü: 5.5.6
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -22,99 +23,62 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- --------------------------------------------------------
 
 --
--- Tablo yapısı: `kategori`
+-- Tablo için tablo yapısı `kategori`
 --
 
 CREATE TABLE IF NOT EXISTS `kategori` (
   `kategori_id` int(11) NOT NULL AUTO_INCREMENT,
   `kategori` varchar(50) NOT NULL,
   PRIMARY KEY (`kategori_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Tablo döküm verisi `kategori`
 --
 
+INSERT INTO `kategori` (`kategori_id`, `kategori`) VALUES
+(1, 'Bilgi'),
+(2, 'Randevu'),
+(3, 'Şikayet'),
+(4, 'Sipariş'),
+(5, 'Ödeme');
 
 -- --------------------------------------------------------
 
 --
--- Tablo yapısı: `sorular`
+-- Tablo için tablo yapısı `sorular`
 --
 
 CREATE TABLE IF NOT EXISTS `sorular` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `soru_id` int(11) NOT NULL AUTO_INCREMENT,
   `soru` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=58 ;
+  `cevap` int(2) NOT NULL,
+  `ana_soru_id` int(11) NOT NULL,
+  `soru_tarihi` datetime NOT NULL,
+  PRIMARY KEY (`soru_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=93 ;
 
 --
 -- Tablo döküm verisi `sorular`
 --
 
-INSERT INTO `sorular` (`id`, `soru`) VALUES
-(1, 'aaaaaaa'),
-(2, 'zzzzzzzzzzz'),
-(3, 'bbbbbb'),
-(4, 'bbbbbb'),
-(5, 'bbbbbb'),
-(6, 'bbbbbb'),
-(7, 'bbbbbb'),
-(8, 'bbbbbb'),
-(9, 'bbbbbb'),
-(10, 'bbbbbb'),
-(11, 'bbbbbb'),
-(12, 'bbbbbb'),
-(13, 'bbbbbb'),
-(14, 'bbbbbb'),
-(15, 'bbbbbb'),
-(16, 'bbbbbb'),
-(17, 'bbbbbb'),
-(18, 'test@test.com'),
-(19, 'test@test.com'),
-(20, 'test@test.com'),
-(21, 'test@test.com'),
-(22, 'test@test.com'),
-(23, 'test@test.com'),
-(24, 'test@test.com'),
-(25, 'test@test.com'),
-(26, 'test@test.com'),
-(27, 'aa'),
-(28, 'aa'),
-(29, 'aaaaaaa'),
-(30, 'aaaaaaa'),
-(31, 'aaaaaaa'),
-(32, 'aaaaaaa'),
-(33, 'aaaaaaa'),
-(34, 'aaaaaaa'),
-(35, 'aaaaaaa'),
-(36, 'aaaaaaa'),
-(37, 'aaaaaaa'),
-(38, 'aaaaaaa'),
-(39, 'aaaaaaa'),
-(40, 'aaaaaaa'),
-(41, 'aaaaaaa'),
-(42, 'aaaaaaa'),
-(43, 'aaaaaaa'),
-(44, 'aaaaaaa'),
-(45, 'aaaaaaa'),
-(46, 'aaaaaaa'),
-(47, 'aaaaaaa'),
-(48, 'aaaaaaa'),
-(49, 'aaaaaaa'),
-(50, 'aaaaaaa'),
-(51, 'aaaaaaa'),
-(52, 'aaaaaaa'),
-(53, 'aaaaaaa'),
-(54, 'uuu'),
-(55, 'uuu'),
-(56, 'uuu'),
-(57, 'uuu');
+INSERT INTO `sorular` (`soru_id`, `soru`, `cevap`, `ana_soru_id`, `soru_tarihi`) VALUES
+(82, 'Hala gelmedi.', 1, 0, '2014-01-02 16:57:13'),
+(83, 'En kısa zamanda yolluyoruz.', 0, 82, '2014-01-02 16:57:39'),
+(84, 't1', 0, 0, '2014-01-03 12:47:01'),
+(85, 't2', 0, 0, '2014-01-03 12:47:15'),
+(86, 't3', 0, 0, '2014-01-03 12:47:26'),
+(87, 't4', 0, 0, '2014-01-03 12:47:35'),
+(88, 't5', 0, 0, '2014-01-03 12:47:43'),
+(89, 't6', 0, 0, '2014-01-03 12:47:52'),
+(90, 't8', 0, 0, '2014-01-03 12:48:04'),
+(91, 't9', 0, 0, '2014-01-03 12:48:15'),
+(92, 't10', 0, 0, '2014-01-03 12:48:30');
 
 -- --------------------------------------------------------
 
 --
--- Tablo yapısı: `soru_data`
+-- Tablo için tablo yapısı `soru_data`
 --
 
 CREATE TABLE IF NOT EXISTS `soru_data` (
@@ -128,61 +92,31 @@ CREATE TABLE IF NOT EXISTS `soru_data` (
   `ip` int(11) NOT NULL,
   `tarih` datetime NOT NULL,
   `yayinda` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=43 ;
+  PRIMARY KEY (`id`),
+  KEY `soru_id` (`soru_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=65 ;
 
 --
 -- Tablo döküm verisi `soru_data`
 --
 
 INSERT INTO `soru_data` (`id`, `baslik`, `ad_soyad`, `email`, `soru_id`, `dosya`, `kategori_id`, `ip`, `tarih`, `yayinda`) VALUES
-(1, 'Test', '', 'test@test.com', 1, 'test.jpg', 1, 0, '2013-12-16 16:18:48', 1),
-(2, 'a', 'a', 'aa', 16, '', 1, 1270, '2013-12-18 15:47:42', 1),
-(3, 'a', 'a', 'aa', 17, '', 1, 1270, '2013-12-18 15:48:11', 1),
-(4, 'test', 'test', 'test', 18, '', 1, 1270, '2013-12-18 16:09:04', 1),
-(5, 'test', 'test', 'test', 19, '', 1, 1270, '2013-12-18 16:12:05', 1),
-(6, 'test', 'test', 'test', 20, '', 1, 1270, '2013-12-18 16:12:47', 1),
-(7, 'test', 'test', 'test', 21, '', 1, 1270, '2013-12-18 16:13:01', 1),
-(8, 'test', 'test', 'test', 22, '', 1, 1270, '2013-12-18 16:13:06', 1),
-(9, 'test', 'test', 'test', 23, '', 1, 1270, '2013-12-18 16:13:49', 1),
-(10, 'test', 'test', 'test', 24, '', 1, 1270, '2013-12-18 16:14:24', 1),
-(11, 'test', 'test', 'test', 25, '', 1, 1270, '2013-12-18 16:16:32', 1),
-(12, 'test', 'test', 'test', 26, '', 1, 1270, '2013-12-18 16:16:34', 1),
-(13, 'aaa', 'aaaa', 'aa', 27, '', 1, 1270, '2013-12-18 16:16:59', 1),
-(14, 'aaa', 'aaaa', 'aa', 28, '', 1, 1270, '2013-12-18 16:17:31', 1),
-(15, 'a', 'a', 'aa', 29, '', 1, 1270, '2013-12-18 16:17:46', 1),
-(16, 'a', 'a', 'aa', 30, '', 1, 1270, '2013-12-18 16:18:02', 1),
-(17, 'a', 'a', 'aa', 31, '', 1, 1270, '2013-12-18 16:18:12', 1),
-(18, 'a', 'a', 'aa', 32, '', 1, 1270, '2013-12-18 16:19:45', 1),
-(19, 'a', 'a', 'aa', 33, '', 1, 1270, '2013-12-18 16:20:11', 1),
-(20, 'a', 'a', 'aa', 34, '', 1, 1270, '2013-12-18 16:20:20', 1),
-(21, 'a', 'a', 'aa', 35, '', 1, 1270, '2013-12-18 16:20:41', 1),
-(22, 'a', 'a', 'aa', 36, '', 1, 1270, '2013-12-18 16:20:51', 1),
-(23, 'a', 'a', 'aa', 37, '', 1, 1270, '2013-12-18 16:20:54', 1),
-(24, 'a', 'a', 'aa', 38, '', 1, 1270, '2013-12-18 16:21:06', 1),
-(25, 'a', 'a', 'aa', 39, '', 1, 1270, '2013-12-18 16:21:35', 1),
-(26, 'a', 'a', 'aa', 40, '', 1, 1270, '2013-12-18 16:21:51', 1),
-(27, 'a', 'a', 'aa', 41, '', 1, 1270, '2013-12-18 16:22:08', 1),
-(28, 'a', 'a', 'aa', 42, '', 1, 1270, '2013-12-18 16:22:56', 1),
-(29, 'a', 'a', 'aa', 43, '', 1, 1270, '2013-12-18 16:23:01', 1),
-(30, 'a', 'a', 'aa', 44, '', 1, 1270, '2013-12-18 16:23:06', 1),
-(31, 'a', 'a', 'aa', 45, '', 1, 1270, '2013-12-18 16:23:09', 1),
-(32, 'a', 'a', 'aa', 46, '', 1, 1270, '2013-12-18 16:23:16', 1),
-(33, 'a', 'a', 'aa', 47, '', 1, 1270, '2013-12-18 16:23:25', 1),
-(34, 'a', 'a', 'aa', 48, '', 1, 1270, '2013-12-18 16:23:42', 1),
-(35, 'a', 'a', 'aa', 49, '', 1, 1270, '2013-12-18 16:23:54', 1),
-(36, 'a', 'a', 'aa', 50, 'brandium.jpg', 1, 1270, '2013-12-18 16:24:12', 1),
-(37, 'a', 'a', 'aa', 51, 'brandium.jpg', 1, 1270, '2013-12-18 16:24:36', 1),
-(38, 'a2222', 'a', 'aa', 53, 'brandium.jpg', 1, 1270, '2013-12-18 16:26:05', 1),
-(39, 'uuu', 'uuu', 'uuuu', 54, 'brandium.jpg', 1, 1270, '2013-12-18 16:31:06', 1),
-(40, 'uuu', 'uuu', 'uuuu', 55, 'brandium.jpg', 1, 1270, '2013-12-18 16:33:31', 1),
-(41, 'uuu', 'uuu', 'uuuu', 56, 'brandium.jpg', 1, 1270, '2013-12-18 16:34:04', 1),
-(42, 'uuu', 'uuu', 'uuuu', 57, 'brandium.jpg', 1, 1270, '2013-12-18 16:34:49', 1);
+(53, 'Siparişim hakkında', 'Arzu Acar', 'eminearzuacar@gmail.com', 82, 'buyut.png', 1, 1270, '2014-01-02 16:57:13', 1),
+(55, '', 'admin', '', 83, '', 1, 7210, '2014-01-02 16:57:13', 1),
+(56, 'Test Bilgi', 'test', 'test2@gmail.com', 84, '', 1, 1270, '2014-01-03 12:47:01', 1),
+(57, 'Test Randevu', 'test', 'test2@gmail.com', 85, '', 2, 1270, '2014-01-03 12:47:15', 1),
+(58, 'Test Şikayet', 'test', 'test2@gmail.com', 86, '', 3, 1270, '2014-01-03 12:47:26', 1),
+(59, 'Test Sipariş', 'test', 'test2@gmail.com', 87, '', 4, 1270, '2014-01-03 12:47:35', 1),
+(60, 'Test Ödeme', 'test', 'test2@gmail.com', 88, '', 5, 1270, '2014-01-03 12:47:43', 1),
+(61, 'Test Ödeme', 'test', 'test2@gmail.com', 89, '', 5, 1270, '2014-01-03 12:47:52', 1),
+(62, 'Test Şikayet 2', 'test', 'test2@gmail.com', 90, '', 3, 1270, '2014-01-03 12:48:04', 1),
+(63, 'Test Sipariş 2', 'test', 'test2@gmail.com', 91, '', 4, 1270, '2014-01-03 12:48:15', 1),
+(64, 'Test Bilgi 2', 'test', 'test2@gmail.com', 92, '', 1, 1270, '2014-01-03 12:48:30', 1);
 
 -- --------------------------------------------------------
 
 --
--- Tablo yapısı: `yanitlar`
+-- Tablo için tablo yapısı `yanitlar`
 --
 
 CREATE TABLE IF NOT EXISTS `yanitlar` (
@@ -191,34 +125,41 @@ CREATE TABLE IF NOT EXISTS `yanitlar` (
   `tarih` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
---
--- Tablo döküm verisi `yanitlar`
---
-
-
 -- --------------------------------------------------------
 
 --
--- Tablo yapısı: `yonticiler`
+-- Tablo için tablo yapısı `yoneticiler`
 --
 
-CREATE TABLE IF NOT EXISTS `yonticiler` (
+CREATE TABLE IF NOT EXISTS `yoneticiler` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `ad` varchar(50) NOT NULL,
   `soyad` varchar(50) NOT NULL,
   `kullanici_adi` varchar(50) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `sifre` varchar(20) NOT NULL,
+  `sifre` varchar(255) NOT NULL,
   `ip` varchar(30) NOT NULL,
   `tarih` datetime NOT NULL,
   `yetki_durumu` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- Tablo döküm verisi `yonticiler`
+-- Tablo döküm verisi `yoneticiler`
 --
 
+INSERT INTO `yoneticiler` (`id`, `ad`, `soyad`, `kullanici_adi`, `email`, `sifre`, `ip`, `tarih`, `yetki_durumu`) VALUES
+(2, 'Arzu', 'Acar', 'admin', 'eminearzuacar@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '1270', '2013-12-26 11:56:00', 1);
+
+--
+-- Dökümü yapılmış tablolar için kısıtlamalar
+--
+
+--
+-- Tablo kısıtlamaları `soru_data`
+--
+ALTER TABLE `soru_data`
+  ADD CONSTRAINT `soru_data_ibfk_1` FOREIGN KEY (`soru_id`) REFERENCES `sorular` (`soru_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

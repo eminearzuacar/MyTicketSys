@@ -1,5 +1,9 @@
 <?php
-    include_once "config.php";
+    session_start();
+    
+    if($_SESSION['yonetici'] === 1) {
+    
+    include_once "config.php";    
     
     $sorular_data_sorgusu = "SELECT * FROM sorular LEFT JOIN soru_data ON (sorular.soru_id = soru_data.soru_id) where sorular.cevap=1";
     $sorular_data = $DB->get_results( $sorular_data_sorgusu );
@@ -67,9 +71,6 @@
                 <li>
                     <a href="kategoriEkle.php" class="">Yeni Kategori Ekle</a>
                 </li>
-                <li>
-                    <a href="" class="">Yeni Yönetici Ekle</a>
-                </li>
             </ul>
         </div>
         <div class="yoneticiIcerikAlani">
@@ -78,3 +79,9 @@
     </div>
 </body>
 </html>
+<?php
+    } else {
+        header('Location: yoneticiGirisiFormu.html');
+        exit;
+    }
+?>

@@ -3,7 +3,7 @@
     include_once "config.php";
     
     //soru_data tablosuna kayıt yapıyoruz. ve az önce oluşturduğumu soru_id'sini de bu tabloya kayıt ediyoruz.
-    $tumSorularSql = "SELECT * FROM sorular INNER JOIN soru_data ON (sorular.soru_id = soru_data.soru_id)";
+    $tumSorularSql = "SELECT * FROM sorular LEFT JOIN soru_data ON (sorular.soru_id = soru_data.soru_id) ORDER BY 'soru_data.kategori_id' DESC";
     $tumSorular = $DB->get_results( $tumSorularSql );
 ?>    
 
@@ -32,6 +32,7 @@
 
 //Tüm soruları ekrana basıyoruz.
 foreach($tumSorular as $soru) {
+    if($soru->baslik != ""){
         echo '<tr>';
         echo '<td>' . $soru->baslik . '</td>';
         echo '<td><a href="soru.php?soruID='.$soru->soru_id.'">' . $soru->soru . '</a></td>';
@@ -43,6 +44,7 @@ foreach($tumSorular as $soru) {
         echo '<td>' . $soru->tarih . '</td>';
         echo '</tr>';
     }
+}
     
 ?>
         </table>

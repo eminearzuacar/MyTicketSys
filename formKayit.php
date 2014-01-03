@@ -8,6 +8,7 @@
     //formdan gelen veri
     $baslik = saveConent($_POST['yeniSoruBaslik']);
     $ad_soyad = saveConent($_POST['yeniSoruAdSoyad']);
+    $kategori = saveConent($_POST['yeniSoruKategori']);
     $mail->email = $_POST['yeniSoruEmail'];
     
     //dosya
@@ -70,12 +71,10 @@
         $yeniSoruSql = "INSERT INTO sorular (soru, cevap, ana_soru_id, soru_tarihi) VALUES ('$soru', 0, 0, '$tarih')";
         $DB->query($yeniSoruSql);
         
-        echo $DB->insert_id;
-        
-        $yeniSoruSql2 = "INSERT INTO soru_data (baslik, ad_soyad, email, soru_id, dosya, kategori_id, ip, tarih, yayinda) VALUES ('$baslik', '$ad_soyad', '$email', $DB->insert_id, '$dosya1', 1, '$ip', '$tarih', 1)";
-        echo $yeniSoruSql2;
+        $yeniSoruSql2 = "INSERT INTO soru_data (baslik, ad_soyad, email, soru_id, dosya, kategori_id, ip, tarih, yayinda) VALUES ('$baslik', '$ad_soyad', '$email', $DB->insert_id, '$dosya1', $kategori, '$ip', '$tarih', 1)";
         $DB->query($yeniSoruSql2);
         echo $DB->last_error;
+        echo 'Form kaydı başarılı.';
     }    
 ?>
 

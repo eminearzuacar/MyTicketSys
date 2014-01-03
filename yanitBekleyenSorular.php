@@ -1,7 +1,12 @@
 <?php
-    include_once "config.php";
     
-    $sorular_data_sorgusu = "SELECT * FROM sorular LEFT JOIN soru_data ON (sorular.soru_id = soru_data.soru_id) where sorular.cevap=0";
+    session_start();
+    
+    if($_SESSION['yonetici'] === 1) {
+        
+    include_once "config.php";    
+    
+    $sorular_data_sorgusu = "SELECT * FROM sorular LEFT JOIN soru_data ON (sorular.soru_id = soru_data.soru_id) where sorular.cevap=0' DESC";
     $sorular_data = $DB->get_results( $sorular_data_sorgusu );
 
     // Tüm soruların dataları burda çekiliyor ve tablo oluşuyor.
@@ -11,8 +16,9 @@
         $sorular_data_sonuc .= '<table>';
         $sorular_data_sonuc .= '<tr><td>Baslik</td><td>Soru</td><td>Ad Soyad</td><td>Email</td><td>Dosya</td><td>Kategori</td><td>IP</td><td>Tarih</td></tr>';
         foreach ($sorular_data as $soru_data) {
-            $sorular_data_sonuc .= '<tr>';
-            $sorular_data_sonuc .=
+           if($soru_data->baslik != 0){
+                $sorular_data_sonuc .= '<tr>';
+                $sorular_data_sonuc .=
                   '<td>' .
                     $soru_data->baslik .
                   '</td>
@@ -39,7 +45,14 @@
                    <td>' .
                     $soru_data->tarih .
                   '</td>';      
-              $sorular_data_sonuc .= '</tr>';     
+              $sorular_data_sonuc .= '</tr>';
+           } else {
+               $sorular_data_sonuc .= '<tr>
+                        <td>
+                            Hiç soru yok
+                        </td>
+                    </tr>';
+           }    
         }
         $sorular_data_sonuc .= '</table>';
     }
@@ -67,10 +80,7 @@
                 <li>
                     <a href="kategoriEkle.php" class="">Yeni Kategori Ekle</a>
                 </li>
-                <li>
-                    <a href="" class="">Yeni Yönetici Ekle</a>
-                </li>
-            </ul>
+             </ul>
         </div>
         <div class="yoneticiIcerikAlani">
             <?php echo $sorular_data_sonuc; ?>
@@ -78,3 +88,9 @@
     </div>
 </body>
 </html>
+<?php
+    } else {
+        header('Location: yoneticiGirisiFormu.html');
+        exit;
+    }
+?>

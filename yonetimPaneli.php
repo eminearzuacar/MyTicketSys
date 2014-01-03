@@ -1,6 +1,16 @@
 <?php
     include_once "config.php";
     include_once "islemler.php";
+    
+    session_start();
+    
+    if($_SESSION['yonetici'] === 1) {
+        
+        if(isset($_GET['cikis'])) {
+            session_destroy();
+            header('Location: yoneticiGirisiFormu.html');
+            exit;
+        }
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,9 +35,9 @@
                 <li>
                     <a href="kategoriEkle.php" class="">Yeni Kategori Ekle</a>
                 </li>
-                <li>
-                    <a href="" class="">Yeni Yönetici Ekle</a>
-                </li>
+                 <li>
+                     <a href="?cikis=cikis">Çıkış</a>   
+                 </li>    
             </ul>
         </div>
         <div class="yoneticiIcerikAlani">
@@ -36,3 +46,9 @@
     </div>
 </body>
 </html>
+<?php
+    } else {
+        header('Location: yoneticiGirisiFormu.html');
+        exit;
+    }
+?>

@@ -6,6 +6,10 @@
         $yeniKategoriSql = "INSERT INTO kategori (kategori) VALUES ('$kategori')";
         $DB->query($yeniKategoriSql);
     }
+    
+    session_start();
+    
+    if($_SESSION['yonetici'] === 1) {
         
 ?>
 <!DOCTYPE html>
@@ -31,13 +35,10 @@
                 <li>
                     <a href="kategoriEkle.php" class="">Yeni Kategori Ekle</a>
                 </li>
-                <li>
-                    <a href="" class="">Yeni Yönetici Ekle</a>
-                </li>
             </ul>
         </div>
         <div class="yoneticiIcerikAlani">
-            <form action="?ekle=ekle" method="POST">
+            <form action="?ekle=ekle" method="POST" class="kategoriForm">
                 Yeni kategori <input type="text" name="kategori"/>
                 <input type="submit" />
             </form>
@@ -45,3 +46,9 @@
     </div>
 </body>
 </html>
+<?php
+    } else {
+        header('Location: yoneticiGirisiFormu.html');
+        exit;
+    }
+?>

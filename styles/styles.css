@@ -274,7 +274,7 @@ body {
 .tumSorularDiv {
     background-color: #CDDCE2;
     width: 1000px;
-    height: 420px;
+    height: auto;
     margin: 100px auto 0 auto;
     border-radius: 10px 10px 10px 10px;
     -moz-border-radius: 10px 10px 10px 10px;
@@ -312,4 +312,8 @@ body {
     height: 150px;
     resize: none;
     margin: 25px 0 0 0;
+}
+
+.kategoriForm {
+    padding: 30px;
 }
